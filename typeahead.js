@@ -284,8 +284,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			The query string is exhausted. Search for recommendations
 		*/
 
-		// Where the query left off
-		var _backStart = sPath
 		// Backtracking index
 		var _track = 0
 
@@ -309,8 +307,8 @@ document.addEventListener('DOMContentLoaded', function(){
 			else if (Object.keys(sPath.nodes).length > 0) {
 				
 				/*
-			     * Determine the next node we'll descend into.
-			     * next_letter - Has not been visited and has the highest weight
+				 * Determine the next node we'll descend into.
+				 * next_letter - Has not been visited and has the highest weight
 				 */
 				next_letter = getNextLetter(sPath.nodes)
 
