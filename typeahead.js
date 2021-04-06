@@ -269,29 +269,28 @@ document.addEventListener('DOMContentLoaded', function(){
 				continue
 			}
 
-
-
-			if (sPath.isMatch) {
+			// Add 
+			if (sPath.isMatch && _q.length <= _str.length) {
 				matches.push(_str)
 			}
-
 			
 			q = q.slice(1)
 
 		}
 
 		/*
-			The query string is exhausted. Search for recommendations
+			The query string is exhausted. Begin searching for recommendations from where the query left off
 		*/
-
-		// Backtracking index
-		var _track = 0
+		
+		//var _track = 0
 
 		while (matches.length < MATCH) {
-			postMatches(matches)
-			console.log(`String: ${_str} - ${_track}`)
-			_track++
 
+			// Update view
+			postMatches(matches)
+
+			// console.log(`String: ${_str} - ${_track}`)
+			// _track++
 
 			// Used to determine our next descent in the trie
 			var next_letter = null
